@@ -34,7 +34,7 @@ const getEmployee = function () {
                                     message: "What is the employee's email?",
                                     name: "empEmail"
                                 }).then(({ empEmail }) => {
-                                    console.log(empType);
+                                
 
                                     if (empType === "Manager") {
 
@@ -60,7 +60,7 @@ const getEmployee = function () {
                                                 const intern = new Intern(empName, empId, empEmail, schoolName);
                                                 employees.push(intern)
                                                 addAnother();
-                                                console.log(intern);
+                                        
 
                                             })
                                     }
@@ -74,7 +74,7 @@ const getEmployee = function () {
                                                 const engineer = new Engineer(empName, empId, empEmail, github);
                                                 employees.push(engineer)
                                                 addAnother();
-                                                console.log(engineer);
+                                                
 
                                             })
                                     }
@@ -110,17 +110,17 @@ const createhtml = function () {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
       <title>Document</title>
   </head>
-  <body>
-  <h1>The Team</h1>
+  <body class="text-center">
+  <h1 class="bg-primary">The Team</h1>
   <section class="container">
       <div class ="row">
           <div class ="col d-flex flex-row" >`;
 
     for (var i = 0; i < employees.length; i++) {
 
-       var card = `<div class="card" style="width: 20rem;">
+       var card = `<div class="card m-2" style="width: 20rem;">
             <div class="card-body">
-                <h5 class="card-title">${employees[i].getName()}</h5>
+                <h5 class="card-title bg-primary">${employees[i].getName()}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
                 <p class="card-text">Id: ${employees[i].getId()}</p>
                 <a href="mailto:${employees[i].getEmail()}" class="card-link">Email: ${employees[i].getEmail()}</a>`;
@@ -142,15 +142,7 @@ const createhtml = function () {
         card += endOfCard;
         html += card;
     }
-    //     <div class="card" style="width: 18rem;">
-    //       <div class="card-body">
-    //         <h5 class="card-title">Card title</h5>
-    //         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    //         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    //         <a href="#" class="card-link">Card link</a>
-    //         <a href="#" class="card-link">Another link</a>
-    //       </div>
-    //     </div>
+  
     const end = `</div>
       </div>
   </section>
